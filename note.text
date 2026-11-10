@@ -1,0 +1,67 @@
+
+# 1. Create project
+mkdir RegistrationForm
+cd RegistrationForm
+
+# 2. Initialize Node.js
+npm init -y
+
+# 3. Install Express
+npm install express body-parser
+
+# 4. Create public folder
+mkdir public
+
+# 5. Create app.js
+New-Item app.js -ItemType File
+
+# 6. Create index.html
+New-Item public/index.html -ItemType File
+
+# 7. Open project in VS Code
+code .
+
+# 8. After pasting app.js and index.html code, start application
+node app.js
+
+# 9. Press Ctrl+C to stop the server before Docker
+
+# 10. Create Dockerfile
+New-Item Dockerfile -ItemType File
+
+# 11. Build Docker image
+docker build -t nodejs-registration-app .
+
+# 12. Run Docker container
+docker run -d -p 3000:3000 --name nodejs-registration nodejs-registration-app
+
+# 13. Check container
+docker ps
+
+# 14. Create Selenium folder
+mkdir selenium-tests
+cd selenium-tests
+
+# 15. Initialize Selenium project
+npm init -y
+
+# 16. Install Selenium
+npm install selenium-webdriver chromedriver
+
+# 17. Create Selenium test file
+New-Item test_registration.js -ItemType File
+
+# 18. Open Selenium folder in VS Code
+code .
+
+# 19. After pasting Selenium code, run test
+node test_registration.js
+
+# 20. Expected output
+# Test Passed: Registration was successful.
+
+# 21. Docker commands
+docker logs nodejs-registration
+docker stop nodejs-registration
+docker start nodejs-registration
+docker rm -f nodejs-registration
